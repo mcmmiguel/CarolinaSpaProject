@@ -1,0 +1,49 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.sociales {
+    margin: 5rem 0;
+    display: flex; // Para mostrarlos en horizontal y quitar el display block del span
+
+    @include m.tablet { 
+        margin: 0;
+    }
+
+    &__enlace {
+
+        &::before {
+            content: '';
+            padding: 2rem;
+            display: inline-block;
+        }
+        &[href*= 'facebook.com']::before { //Selector de que en algún lugar debe decir facebook.com
+            background-image: url(../../../../build/img/icono_facebook.svg);
+        }
+        &[href*= 'twitter.com']::before { //Selector de que en algún lugar debe decir twitter.com
+            background-image: url(../../../../build/img/icono_twitter.svg);
+        }
+        &[href*= 'instagram.com']::before { //Selector de que en algún lugar debe decir instagram.com
+            background-image: url(../../../../build/img/icono_instagram.svg);
+        }
+        &[href*= 'youtube.com']::before { //Selector de que en algún lugar debe decir youtube.com
+            background-image: url(../../../../build/img/icono_youtube.svg);
+        }
+        &[href*= 'tiktok.com']::before { //Selector de que en algún lugar debe decir tiktok.com
+            background-image: url(../../../../build/img/icono_tiktok.svg);
+        }
+        &[href*= 'pinterest.com']::before { //Selector de que en algún lugar debe decir pinterest.com
+            background-image: url(../../../../build/img/icono_pinterest.svg);
+        }
+    }
+
+    &__accesible {  //No se puede usar display: none porque se quitaria del html. Debemos buscar ocultarlo totalmente o lo mayor posible
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip:rect(0, 0, 0, 0);
+        border: 0;
+        display: block;
+    }
+}
